@@ -66,7 +66,7 @@ public class Reparacion {
         this.mecanico = mecanico;
         this.fecha = fecha;
         this.descripcion = descripcion;
-        this.estado = estado;
+        this.estado = "Pendiente"; //Estado inicial 
     }
 
     public Reparacion() {

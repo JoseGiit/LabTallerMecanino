@@ -31,4 +31,24 @@ public class ListaReparaciones {
             
         }
     }
+    public void cambiarEstadoReparado(int id) {
+        for (Reparacion reparacion : reparacionesQueue) {
+            if (reparacion.getId() == id) {
+                if ("Pendiente".equals(reparacion.getEstado())) {
+                    reparacion.setEstado("Reparado");
+                }
+                return;
+            }
+        }
+    }
+    public void listaReparaciones() {
+        if (reparacionesQueue.isEmpty()) {
+            System.out.println("No hay reparaciones.");
+        } else {
+            System.out.println("Lista de reparaciones:");
+            for (Reparacion reparacion : reparacionesQueue) {
+                System.out.println(reparacion);
+            }
+        }
+    }
 }
