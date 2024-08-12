@@ -4,6 +4,8 @@
  */
 package Vehiculos;
 
+import java.util.ArrayList;
+
 /**
  *
  * @author Luisk
@@ -16,7 +18,7 @@ public class FrmListaVehiculo extends javax.swing.JFrame {
         initComponents();
           listaVehiculos = new ListaVehiculos();
     }
-
+    
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -215,7 +217,7 @@ public class FrmListaVehiculo extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void txtMatriculaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMatriculaActionPerformed
-         String matricula = txtMatricula.getText();
+        String matricula = txtMatricula.getText();
     
     Vehiculo vehiculo = listaVehiculos.buscarVehiculo(matricula);
     
@@ -227,26 +229,26 @@ public class FrmListaVehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_txtMatriculaActionPerformed
 
     private void txtModeloActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtModeloActionPerformed
-       String modelo = txtModelo.getText();
-
+    String modelo = txtModelo.getText();
+    
     txtResultados.setText("Modelo ingresado: " + modelo);
     }//GEN-LAST:event_txtModeloActionPerformed
 
     private void txtAnioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtAnioActionPerformed
-        String anioTexto = txtAnio.getText();
+       String anioTexto = txtAnio.getText();
+    
     try {
         int anio = Integer.parseInt(anioTexto);
         
         txtResultados.setText("Año de fabricación ingresado: " + anio);
         
     } catch (NumberFormatException ex) {
-
         txtResultados.setText("Error: El año de fabricación debe ser un número entero.");
     }
     }//GEN-LAST:event_txtAnioActionPerformed
 
     private void txtMarcaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMarcaActionPerformed
-        String marca = txtMarca.getText();
+         String marca = txtMarca.getText();
     
     txtResultados.setText("Marca ingresada: " + marca);
     }//GEN-LAST:event_txtMarcaActionPerformed
@@ -267,7 +269,6 @@ public class FrmListaVehiculo extends javax.swing.JFrame {
         txtResultados.setText("Vehículo agregado: " + vehiculo.toString());
         
     } catch (NumberFormatException ex) {
- 
         txtResultados.setText("Error: El año de fabricación debe ser un número entero.");
     }
     }//GEN-LAST:event_btnAgregarActionPerformed
@@ -285,10 +286,11 @@ public class FrmListaVehiculo extends javax.swing.JFrame {
     }//GEN-LAST:event_btnEliminarActionPerformed
 
     private void btnBuscarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarActionPerformed
-        String matricula = txtMatricula.getText();
+       String matricula = txtMatricula.getText();
     
+    // Buscar el vehículo en la lista
     Vehiculo vehiculo = listaVehiculos.buscarVehiculo(matricula);
-        
+    
     if (vehiculo != null) {
         txtResultados.setText("Vehículo encontrado: " + vehiculo.toString());
     } else {
@@ -299,12 +301,14 @@ public class FrmListaVehiculo extends javax.swing.JFrame {
     private void btnMostrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMostrarActionPerformed
          txtResultados.setText("");
     
-    for (Vehiculo vehiculo : listaVehiculos.obtenerListaVehiculos()) {
-         txtResultados.append(vehiculo.toString() + "\n");
-    }
+    ArrayList<Vehiculo> vehiculos = listaVehiculos.obtenerListaVehiculos();
     
-    if (listaVehiculos.obtenerListaVehiculos().isEmpty()) {
-         txtResultados.setText("No hay vehículos en la lista.");
+    if (vehiculos.isEmpty()) {
+        txtResultados.setText("No hay vehículos en la lista.");
+    } else {
+        for (Vehiculo v : vehiculos) {
+            txtResultados.append(v.toString() + "\n");
+        }
     }
     }//GEN-LAST:event_btnMostrarActionPerformed
 
