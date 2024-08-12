@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Clientes;
-
+import Vehiculos.Vehiculo;
 /**
  *
  * @author Student
@@ -13,6 +13,7 @@ public class Cliente {
     private String nombre;
     private String telefono;
     private String direccion;
+    private Vehiculo matricula;
 
     public int getId() {
         return id;
@@ -42,11 +43,16 @@ public class Cliente {
         this.direccion = direccion;
     }
 
+    public Vehiculo getMatricula() {
+        return matricula;
+    }
+
     public Cliente(int id, String nombre, String telefono, String direccion) {
         this.id = id;
         this.nombre = nombre;
         this.telefono = telefono;
         this.direccion = direccion;
+        this.matricula = matricula;
     }
 
     public Cliente() {
@@ -54,8 +60,10 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + '}';
+        return "Cliente{" + "id=" + id + ", nombre=" + nombre + ", telefono=" + telefono + ", direccion=" + direccion + ", matricula=" + matricula + '}';
     }
+
+    
     
     
 }
