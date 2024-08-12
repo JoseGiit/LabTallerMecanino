@@ -3,7 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package Reparaciones;
-
+import Mecanicos.Mecanico;
 /**
  *
  * @author Student
@@ -20,6 +20,7 @@ public class Reparacion {
     public int getId() {
         return id;
     }
+    
 
     public String getVehiculo() {
         return vehiculo;
