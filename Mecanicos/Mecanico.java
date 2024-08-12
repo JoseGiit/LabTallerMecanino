@@ -4,45 +4,19 @@
  */
 package Mecanicos;
 
-import java.util.ArrayList;
+
 
 /**
  *
  * @author Luisk
  */
 public class Mecanico {
-    private int id;
+    private String id;
     private String nombre;
     private String especialidad;
-    private ArrayList<Mecanico> mecanicos;
     
-    
-    public void agregarMecanico(Mecanico mecanico) {
-        mecanicos.add(mecanico);
-    }
-    
-    public ArrayList<Mecanico> getMecanicos() {
-        return mecanicos;
-    }
-    
-    public void imprimirMecanicos() {
-        for (Mecanico mecanico : mecanicos) {
-            System.out.println(mecanico);
-        }
-    }
-    
-    public Mecanico buscarMecanicoPorId(int id) {
-        for (Mecanico mecanico : mecanicos) {
-            if (mecanico.getId() == id) {
-                return mecanico;
-            }
-        }
-        return null; 
-    }
 
-   
-
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -67,17 +41,14 @@ public class Mecanico {
         return "Mecanico{" + "id=" + id + ", nombre=" + nombre + ", especialidad=" + especialidad + '}';
     }
 
-    public Mecanico(int id, String nombre, String especialidad, ArrayList<Mecanico> mecanicos) {
+    public Mecanico(String id, String nombre, String especialidad) {
         this.id = id;
         this.nombre = nombre;
         this.especialidad = especialidad;
-        this.mecanicos = mecanicos;
     }
 
     public Mecanico() {
     }
     
-    
-    
-    
+   
 }

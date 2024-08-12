@@ -5,23 +5,20 @@
 package Mecanicos;
 
 
-import java.util.ArrayList;
-import javax.swing.DefaultListModel;
-import javax.swing.JOptionPane;
+
 
 /**
  *
  * @author jdarg
  */
 public class FrmMecanicos extends javax.swing.JFrame {
-       ArrayList array = new ArrayList();
-       DefaultListModel modelo = new DefaultListModel();
        
-       
+
+    
     public FrmMecanicos() {
         initComponents();
-        jlLista.setModel(modelo);
-        
+        ListaMecanicos Mecanicos = new ListaMecanicos();
+
         
     }
 
@@ -46,8 +43,8 @@ public class FrmMecanicos extends javax.swing.JFrame {
         btnAgregrar = new javax.swing.JToggleButton();
         jLabel6 = new javax.swing.JLabel();
         btnBuscar = new javax.swing.JToggleButton();
-        jScrollPane2 = new javax.swing.JScrollPane();
-        jlLista = new javax.swing.JList<>();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jtLista = new javax.swing.JTextArea();
 
         jTextField1.setText("jTextField1");
 
@@ -99,7 +96,9 @@ public class FrmMecanicos extends javax.swing.JFrame {
             }
         });
 
-        jScrollPane2.setViewportView(jlLista);
+        jtLista.setColumns(20);
+        jtLista.setRows(5);
+        jScrollPane1.setViewportView(jtLista);
 
         jDesktopPane1.setLayer(jLabel1, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(txtID, javax.swing.JLayeredPane.DEFAULT_LAYER);
@@ -111,7 +110,7 @@ public class FrmMecanicos extends javax.swing.JFrame {
         jDesktopPane1.setLayer(btnAgregrar, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(jLabel6, javax.swing.JLayeredPane.DEFAULT_LAYER);
         jDesktopPane1.setLayer(btnBuscar, javax.swing.JLayeredPane.DEFAULT_LAYER);
-        jDesktopPane1.setLayer(jScrollPane2, javax.swing.JLayeredPane.DEFAULT_LAYER);
+        jDesktopPane1.setLayer(jScrollPane1, javax.swing.JLayeredPane.DEFAULT_LAYER);
 
         javax.swing.GroupLayout jDesktopPane1Layout = new javax.swing.GroupLayout(jDesktopPane1);
         jDesktopPane1.setLayout(jDesktopPane1Layout);
@@ -132,26 +131,24 @@ public class FrmMecanicos extends javax.swing.JFrame {
                             .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel2)))
                     .addComponent(btnBuscar, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 61, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 34, Short.MAX_VALUE)
                 .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 323, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 261, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(20, 20, 20)))
-                .addGap(14, 14, 14))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 259, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(31, 31, 31))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jDesktopPane1Layout.createSequentialGroup()
+                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(87, 87, 87))))
         );
         jDesktopPane1Layout.setVerticalGroup(
             jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                .addGap(14, 14, 14)
+                .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 290, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jDesktopPane1Layout.createSequentialGroup()
-                        .addGap(14, 14, 14)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(jDesktopPane1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel2)
                         .addGap(2, 2, 2)
@@ -167,8 +164,9 @@ public class FrmMecanicos extends javax.swing.JFrame {
                         .addGap(18, 18, 18)
                         .addComponent(btnAgregrar)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(btnBuscar)))
-                .addContainerGap(60, Short.MAX_VALUE))
+                        .addComponent(btnBuscar))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(95, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -202,17 +200,9 @@ public class FrmMecanicos extends javax.swing.JFrame {
     }//GEN-LAST:event_txtIDActionPerformed
 
     private void btnAgregrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAgregrarActionPerformed
-        String id = txtID.getText();
-        String nombre = txtNombre.getText();
-        String esp = txtEspecial.getText();
-        array.add(id);
-        array.add(nombre);
-        array.add(esp);
-        JOptionPane.showMessageDialog(null, "Dato guardado");
-        modelo.removeAllElements();
-        for(int i = 0; i < array.size(); i++){
-            modelo.addElement(array.get(i));
-        }
+       Mecanico mecanicos = new Mecanico(this.txtID.getText(),this.txtNombre.getText(),this.txtEspecial.getText());
+       
+
     }//GEN-LAST:event_btnAgregrarActionPerformed
 
     /**
@@ -259,9 +249,9 @@ public class FrmMecanicos extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextField jTextField1;
-    private javax.swing.JList<String> jlLista;
+    private javax.swing.JTextArea jtLista;
     private javax.swing.JTextField txtEspecial;
     private javax.swing.JTextField txtID;
     private javax.swing.JTextField txtNombre;
